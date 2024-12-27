@@ -1,0 +1,23 @@
+@mixin flex-align-center ($direction, $justify-content) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin button($background, $color) {
+    background-color: $background;
+    border-radius: .2rem;
+    padding: 1rem;
+    color: $color;
+}
+
+@mixin before-after($clip-path) {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+    content: "";
+    background-color: currentcolor;
+    clip-path: $clip-path;
+}
