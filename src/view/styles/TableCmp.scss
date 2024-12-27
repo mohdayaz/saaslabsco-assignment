@@ -1,0 +1,67 @@
+@import "./mixins.scss";
+@import "./colors.scss";
+
+.table {
+    &__container {
+        @include flex-align-center(column, center);
+        background-color: $white;
+        width: 100%;
+        align-items: center;
+        height: 100vh;
+
+    }
+
+    &__wrapper {
+        width: 50%;
+        padding: 2rem;
+        border-radius: 1rem;
+        border: 1px solid $white-4;
+    }
+
+    &__header {
+        th {
+            border: 1px solid $white-4;
+            padding: 1rem;
+            border-radius: .6rem;
+            text-align: left;
+        }
+    }
+
+    &__row {
+        td {
+            border: 1px solid $white-4;
+            padding: 1rem;
+            border-radius: 0.6rem;
+        }
+    }
+
+    &__pagination {
+        @include flex-align-center(row, center);
+        width: 100%;
+        padding: 2rem 0;
+        gap: 2rem;
+
+        .prev {
+            &::before {
+                @include before-after($left-arrow);
+            }
+        }
+
+        .next {
+            &::after {
+                @include before-after($right-arrow);
+            }
+        }
+
+        .page {
+            &--default {
+                @include button($white-5, $black-1);
+                padding: .4rem;
+            }
+            &--active {
+                @include button($black-1, $white);
+            }
+        }
+    }
+
+}
