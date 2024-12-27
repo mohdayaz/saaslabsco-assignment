@@ -1,21 +1,21 @@
-@import "./TableCmp.scss";
-@import "./mixins.scss";
-@import "./colors.scss";
+// @import "./TableCmp.scss";
+// @import "./mixins.scss";
+// @import "./colors.scss";
 
-.table {
-    @extend .table;
+// .table {
+//     @extend .table;
 
-    .placeholder {
-        background: $white-2;
-        padding: 1.5em 1em;
-        border: 1px solid $white-5;
-    }
+//     .placeholder {
+//         background: $white-2;
+//         padding: 1.5em 1em;
+//         border: 1px solid $white-5;
+//     }
 
-    &__pagination {
-        gap: 1rem;
+//     &__pagination {
+//         gap: 1rem;
 
-        .placeholder {
-            @include button($white-2, $white-5);
-        }
-    }
-}
+//         .placeholder {
+//             @include button($white-2, $white-5);
+//         }
+//     }
+// }

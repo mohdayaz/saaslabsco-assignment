@@ -1,3 +1,20 @@
+$breakpoint-phone: 480px; // Max width for phones
+$breakpoint-tablet: 1000px; // Max width for tablets
+
+@mixin mq($device) {
+    @if $device == phone {
+      @media (max-width: #{$breakpoint-phone}) {
+        @content;
+      }
+    } @else if $device == tablet {
+      @media (max-width: #{$breakpoint-tablet}) {
+        @content;
+      }
+    }
+  }
+
+
+
 @mixin flex-align-center ($direction, $justify-content) {
     display: flex;
     justify-content: $justify-content;
@@ -10,7 +27,12 @@
     border-radius: .2rem;
     padding: 1rem;
     color: $color;
+    border: none;
+    margin: 0;
+    cursor: pointer;
 }
+
+
 
 @mixin before-after($clip-path) {
     display: inline-block;
@@ -20,4 +42,12 @@
     content: "";
     background-color: currentcolor;
     clip-path: $clip-path;
+}
+
+@mixin text-style ($color, $fontSize:1.4rem, $lineHeight: 1.4rem, $fontWeight: 400, $textAlign: left){
+    color: $color;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    font-weight: $fontWeight;
+    text-align: $textAlign
 }

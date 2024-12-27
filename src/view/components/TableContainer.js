@@ -20,6 +20,14 @@ const TableContainer = ({ fetchList }) => {
 
   return (
     <div class="table__container">
+      <h2 class="title">
+        Lorem Ipsum is simply dummy text.
+        <br />
+        <span class="title">
+          Lorem Ipsum is simply dummy text of typesetting
+          industry.
+        </span>
+      </h2>
       <TableCmp>
         <TableHeaderCmp data={tableHeaderData} />
         <TableBodyCmp>

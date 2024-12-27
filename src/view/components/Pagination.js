@@ -11,19 +11,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 
   const incrementPageCount = () => {
     if (currentPage < totalPages) {
-      if (currentPage > 4) {
-        onVisibleRangeHandle(visibleRange[1] + 1, visibleRange[1] + rangeLimit);
-      }
-      onPageChange(currentPage + 1);
+      onSelectCurrentPage(currentPage + 1)
     }
   };
 
   const decreamentPageCount = () => {
     if (currentPage > 1) {
-      if (currentPage === visibleRange[0]) {
-        onVisibleRangeHandle(visibleRange[0] - rangeLimit, visibleRange[0]);
-      }
-      onPageChange(currentPage - 1);
+      onSelectCurrentPage(currentPage - 1)
     }
   };
 
@@ -49,7 +43,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       />
       <ButtonCmp
         text="1"
-        cb={() => decreamentPageCount(1)}
+        cb={() => onSelectCurrentPage(1)}
         className={currentPage === 1 ?  "page--active" : "page--default"}
       />
       {currentPage > 4 && <div class="dash">...</div>}

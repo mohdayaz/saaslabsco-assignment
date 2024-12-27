@@ -4,34 +4,48 @@
 .table {
     &__container {
         @include flex-align-center(column, center);
-        background-color: $white;
+        background-image: linear-gradient(180deg, $black-4 0%, $black-5 100%);
         width: 100%;
         align-items: center;
         height: 100vh;
+        color: $white;
 
+        .title {
+            @include text-style($white-2, 2.8rem, 3.2rem, 400, center);
+            max-width: 50rem;
+
+            span {
+                @include text-style($white-5, 1.6rem, 2.2rem, 200, center);
+            }
+        }
     }
 
     &__wrapper {
-        width: 50%;
+        width: 60rem;
         padding: 2rem;
         border-radius: 1rem;
-        border: 1px solid $white-4;
+        background: $black-3;
+        table-layout: fixed;
+
+    }
+
+    &__body {
+        background-image: linear-gradient(180deg, $black-4 0%, $black-3 100%);
+        border-collapse: collapse;
     }
 
     &__header {
         th {
-            border: 1px solid $white-4;
             padding: 1rem;
             border-radius: .6rem;
-            text-align: left;
+            @include text-style($white-2)
         }
     }
 
     &__row {
         td {
-            border: 1px solid $white-4;
             padding: 1rem;
-            border-radius: 0.6rem;
+            @include text-style($white-2, 1rem, 1.2rem, 300)
         }
     }
 
@@ -42,12 +56,16 @@
         gap: 2rem;
 
         .prev {
+            @include button(transparent, $white-5);
+
             &::before {
                 @include before-after($left-arrow);
             }
         }
 
         .next {
+            @include button(transparent, $white-5);
+
             &::after {
                 @include before-after($right-arrow);
             }
@@ -55,13 +73,101 @@
 
         .page {
             &--default {
-                @include button($white-5, $black-1);
+                @include button($black-3, $white-5);
                 padding: .4rem;
             }
+
             &--active {
-                @include button($black-1, $white);
+                @include button($orange, $white);
             }
         }
     }
+
+    @include mq("tablet") {
+        &__wrapper {
+            width: 100%;
+        }
+
+        &__container {
+            padding: 1rem;
+
+            .title {
+                @include text-style($white-2, 1.8rem, 1.8rem, 400, center);
+                span {
+                    @include text-style($white-5, 1.4rem, 1.4rem, 200, center);
+                }
+            }
+        }
+        &__pagination {
+            gap: 0.6rem;
+        }
+    }
+
+
+    @include mq("phone") {
+        &__container {
+            padding: 0;
+            .title {
+                @include text-style($white-2, 1.4rem, 1.8rem, 400, center);
+                max-width: 100%;
+                padding: 0 1rem;
+                span {
+                    @include text-style($white-5, 1rem, 1rem, 200, center);
+                }
+            }
+        }
+
+        &__wrapper {
+            width:calc(100% - 0.8rem);
+            padding: 0.4rem;
+            margin: 0 0.4rem;
+            table-layout: auto;
+        }
+
+        &__header {
+            th {
+                padding: 0.4rem;
+                @include text-style($white-2, 1rem, 1rem)
+            }
+        }
+
+        &__row {
+            td {
+                padding: 1rem 0.4rem;
+            }
+        }
+
+        &__pagination {
+            position: relative;
+            gap: 0.6rem;
+
+            .prev {
+                position: absolute;
+                left: 0;
+                width: 50%;
+                bottom: -2rem;
+                background-color: $orange;
+                border-radius: 0;
+            }
+
+            .next {
+                position: absolute;
+                right: 0;
+                bottom: -2rem;
+                width: 50%;
+                background-color: $orange;
+                border-radius: 0;
+            }
+
+            .page {
+                &--active {
+                    padding: 0.8rem;
+                }
+            }
+        }
+
+    }
+
+
 
 }
